@@ -5,9 +5,10 @@ define('User', function () {
 });
 
 var Link = describe('Link', function () {
-      property('title', String);
-      property('url', String);
-      property('user', Number);
-      property('date', Date);
-      property('private', Boolean);
+	property('title', String);
+	property('url', String);
+	property('user_id', Number);
+	property('private', Boolean);
+	property('modified_at', Date);
+	property('created_at', Date);
 });
