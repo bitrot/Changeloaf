@@ -1,8 +1,6 @@
-{ "development":
-  { "driver":   "mongoose"
-  , "mongodb://localhost/changeloaf_development" 
-  }
-, "test":
-  { "driver": "memory"
+{"development":
+  {
+  "driver": "mongoose"
+  , "url": "mongodb://localhost/changeloaf_development"
   }
 }
