@@ -1,7 +1,8 @@
 { "development":
-  { "driver":   "memory" 
+  { "driver":   "mongoose"
+  , "mongodb://localhost/changeloaf_development" 
   }
 , "test":
-  { "driver": "memory"  	
-  } 
+  { "driver": "memory"
+  }
 }
