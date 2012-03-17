@@ -1,4 +1,4 @@
-var express    = require('express');
+var express = require('express');
 var rwps = require('railway-passport');
 
 app.configure(function(){
