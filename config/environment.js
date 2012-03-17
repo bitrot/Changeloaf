@@ -18,7 +18,7 @@ app.configure(function(){
     rwps.init();
 
     process.nextTick(function () {
-        rwpass.loadUser(User);
+        rwps.loadUser(User);
     });
 
     app.use(app.router);
