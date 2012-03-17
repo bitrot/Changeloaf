@@ -1,0 +1,1 @@
+document.querySelector(".navbar #home").className += ' active';

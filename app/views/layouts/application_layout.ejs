@@ -10,7 +10,15 @@
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="brand" href="#">Changeloaf</a>
+                    <%- link_to('Changeloaf', '/', { class: "brand" }) %>
+                    <ul class="nav">
+                        <li id="home">
+                            <%- link_to('Home', '/') %>
+                        </li>
+                        <li id="links">
+                            <%- link_to('Links', '/links') %>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
