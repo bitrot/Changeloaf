@@ -9,6 +9,7 @@
   , "connect":          ">= 1.4.2"
   , "railway":          ">= 0.1.6"
   , "passport":         ">= 0.0.1"
+  , "railway-passport": ">=0"
   , "coffee-script":    ">= 1.1.1"
   , "mime":             ">= 1.2.2"
   , "qs":               ">= 0.1.0"
