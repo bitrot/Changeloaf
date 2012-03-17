@@ -1,6 +1,5 @@
 development:
   baseURL: "http://localhost:3000/"
-  google: yes
   github:
     clientID: "4156b2030a0db5fae895"
     secret: "0bc3f2a8bdc947e7b149ddbe1bdc5f9644fba9a0"
