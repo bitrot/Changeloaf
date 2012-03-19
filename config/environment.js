@@ -1,6 +1,6 @@
 var express = require('express'),
     rwps = require('railway-passport'),
-    express    = require('express'),
+    express = require('express'),
     RedisStore = require('connect-redis')(express);
 
 var redisOpts = {
