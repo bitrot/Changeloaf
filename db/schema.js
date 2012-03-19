@@ -1,9 +1,11 @@
 var User = describe('User', function () {
       property('login', String);
       property('password', String);
-      property('firstName', String);
-      property('lastName', String);
+      property('displayName', String);
       property('email', String);
+      property('githubId', String, {index: true});
+      property('googleId', String, {index: true});
+      property('linkedinId', String, {index: true});
       property('activated', Boolean, {default: false});
       property('modified', Date, {default: Date.now});
       property('created', Date);
