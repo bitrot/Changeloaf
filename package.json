@@ -16,6 +16,7 @@
   , "qs":               ">= 0.1.0"
   , "mongoose":         ">= 0"
   , "redis":            ">= 0"
+  , "connect-redis":    ">= 0"
   },
   "devDependencies":
   { "nodeunit":         ">= 0"
