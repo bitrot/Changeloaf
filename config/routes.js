@@ -8,4 +8,9 @@ exports.routes = function (map) {
     map.get('/', 'home#index');
     map.get('/links', 'links#index');
     map.get('/login', 'session#new');
+
+    // Session routes
+    map.get('/auth/github/callback', 'session#create');
+
+    map.get('/logout', 'session#destroy');
 };

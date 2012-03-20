@@ -3,13 +3,13 @@ load('application');
 before(loadSession, {only: ['show', 'edit', 'update', 'destroy']});
 
 action('new', function () {
-    this.title = 'New session';
+    this.title = 'Login';
     this.session = new Session;
     render();
 });
 
 action(function create() {
-    Session.create(req.body.Session, function (err, session) {
+    Session.create(req.body, function (err, session) {
         if (err) {
             flash('error', 'There was an error.  If this persists, contact support.');
             render('new');
@@ -37,11 +37,11 @@ action(function destroy() {
     this.session.destroy(function (error) {
         if (error) {
             flash('error', 'There was an error. If this persists, contact support.');
+            render('home');
         } else {
             flash('info', 'Goodbye!');
             render('new');
         }
-        send("'" + path_to.sessions + "'");
     });
 });
 
