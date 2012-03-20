@@ -11,14 +11,11 @@ action('new', function () {
 action(function create() {
     Session.create(req.body.Session, function (err, session) {
         if (err) {
-            flash('error', 'Session can not be created');
-            render('new', {
-                session: session,
-                title: 'New session'
-            });
+            flash('error', 'There was an error.  If this persists, contact support.');
+            render('new');
         } else {
-            flash('info', 'Session created');
-            redirect(path_to.sessions);
+            flash('info', 'Welcome!');
+            redirect(path_to.home);
         }
     });
 });
@@ -39,9 +36,10 @@ action(function create() {
 action(function destroy() {
     this.session.destroy(function (error) {
         if (error) {
-            flash('error', 'Can not destroy session');
+            flash('error', 'There was an error. If this persists, contact support.');
         } else {
-            flash('info', 'Session successfully removed');
+            flash('info', 'Goodbye!');
+            render('new');
         }
         send("'" + path_to.sessions + "'");
     });
@@ -50,7 +48,7 @@ action(function destroy() {
 function loadSession() {
     Session.find(params.id, function (err, session) {
         if (err) {
-            redirect(path_to.sessions);
+            redirect(path_to.home);
         } else {
             this.session = session;
             next();

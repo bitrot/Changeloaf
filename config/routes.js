@@ -1,5 +1,5 @@
 exports.routes = function (map) {
-    map.resources('sessions');
+    map.resources('session');
     map.resources('links');
 
     map.all(':controller/:action');

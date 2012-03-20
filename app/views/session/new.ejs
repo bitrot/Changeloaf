@@ -1,0 +1,25 @@
+<div class="page-header">
+    <h1>Login</h1>
+</div>
+
+<% form_for(session, {action: path_to.session, method: 'POST', id: "session_form", class: 'form-horizontal'}, function (form) { %>
+	<div class="form-controls">
+		<div class="control-group">
+		   	<%- form.label("username", false, {class: "control-label"}) %>
+		   	<div class="controls">
+	       		<%- form.input("username") %>
+		   	</div>
+		</div>
+		<div class="control-group">
+	   		<%- form.label("password", false, {class: "control-label"}) %>
+	   		<div class="controls">
+    	   		<%- form.input("password") %>
+	   		</div>
+		</div>
+	</div>
+    <div class="form-actions">
+        <%- form.submit('<i class="icon-ok icon-white"></i> Login', { class: 'btn btn-primary btn-large' }) %>
+        or
+        <%- link_to('Sign in with GitHub', '/auth/github', { class: 'btn btn-large' } ) %>
+    </div>
+<% });%>
