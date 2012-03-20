@@ -19,8 +19,7 @@ app.configure(function(){
     app.set('cssDirectory', '/stylesheets/');
     app.use(express.bodyParser());
     app.use(express.cookieParser('b52cddbdbd88deb926f6d0bc01d46a69edb171b7'));
-    app.use(express.session({secret: '706eaa0377f52f5a2f3e0671b6a9f96e5764f3cb'}));
-    app.use(express.session({secret: 'secret', store: new RedisStore(redisOpts)}));
+    app.use(express.session({secret: '706eaa0377f52f5a2f3e0671b6a9f96e5764f3cb', store: new RedisStore(redisOpts)}));
     app.use(express.methodOverride());
 
     rwps.init();
