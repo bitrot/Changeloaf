@@ -19,3 +19,6 @@ var Link = describe('Link', function () {
 	property('modified', Date);
 	property('created', Date);
 });
+var Session = describe('Session', function () {
+
+});
