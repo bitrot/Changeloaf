@@ -1,15 +1,4 @@
 <%- javascript_include_tag('links/index') %>
-<div class="page-header">
-    <h1>Index of link</h1>
-</div>
-
-<div class="row">
-    <div class="span12">
-        <p>
-            <%- link_to('<i class="icon-plus icon-white"></i> New link', path_to.new_link, {class: 'btn btn-primary'}) %>
-        </p>
-    </div>
-</div>
 
 <div class="row">
     <div class="span12">
@@ -38,7 +27,7 @@
                                 <%- link_to('<i class="icon-remove icon-white"></i> Delete', path_to.link(link), {class: 'btn btn-mini btn-danger', method: 'delete', remote: true, jsonp: '(function (u) {location.href = u;})'}) %>        
                             </td>
                         </tr>
-                    <% }); %>        
+                    <% }); %>
                 </tbody>
             </table>
         <% } else { %>
@@ -46,5 +35,13 @@
                 <strong>No links were found.</strong> 
             </p>
         <% } %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
+        <p>
+            <%- link_to('<i class="icon-plus icon-white"></i> New link', path_to.new_link, {class: 'btn btn-primary'}) %>
+        </p>
     </div>
 </div>

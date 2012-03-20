@@ -1,49 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title><%= title %></title>
-        <%- stylesheet_link_tag('bootstrap', 'style', 'bootstrap-responsive') %>
-        <%- javascript_include_tag('http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js', 'bootstrap', 'rails', 'application') %>
-        <%- csrf_meta_tag() %>
-    </head>
-    <body>
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="container">
-                    <%- link_to('Changeloaf', '/', { class: "brand" }) %>
-                    <ul class="nav">
-                        <li id="home">
-                            <%- link_to('Home', '/') %>
-                        </li>
-                        <li id="links">
-                            <%- link_to('Links', '/links') %>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+  <head>
+    <title><%= title %></title>
+    <%- stylesheet_link_tag('bootstrap', 'style', 'bootstrap-responsive') %>
+    <%- javascript_include_tag('http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js', 'bootstrap', 'rails', 'application') %>
+    <%- csrf_meta_tag() %>
+  </head>
+  <body>
+    <div class="container" style="margin-top: 10px;">
+      <ul class="nav nav-pills">
+        <li id="home">
+          <%- link_to('Home', '/') %>
+        </li>
+        <li id="links">
+          <%- link_to('Links', '/links') %>
+        </li>
+        <li>
+          <%- link_to('Log-in', '/login') %>
+        </li>
+        <li>
+          <%- link_to('Log-out', '/logout') %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <% var flash = request.flash('info').pop(); if (flash) { %>
+        <div class="alert alert-info">
+          <a class="close" data-dismiss="alert">×</a>
+          <%- flash %>
         </div>
-    
-        <div class="container">
-            <% var flash = request.flash('info').pop(); if (flash) { %>
-                <div class="alert alert-info">
-                    <a class="close" data-dismiss="alert">×</a>
-                    <%- flash %>
-                </div>
-            <% } %>
-            
-            <% flash = request.flash('error').pop(); if (flash) { %>
-                <div class="alert alert-error">
-                    <a class="close" data-dismiss="alert">×</a>
-                    <%- flash %>
-                </div>
-            <% }; %>
-            
-            <%- body %>
-            
-            <hr />
-            <footer>
-                <p>&copy; Changeloaf 2012</p>
-            </footer>
+      <% } %>
+
+      <% flash = request.flash('error').pop(); if (flash) { %>
+        <div class="alert alert-error">
+          <a class="close" data-dismiss="alert">×</a>
+          <%- flash %>
         </div>
-    </body>
+      <% }; %>
+
+      <%- body %>
+
+    </div>
+  </body>
 </html>

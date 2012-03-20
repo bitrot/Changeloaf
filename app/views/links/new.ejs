@@ -1,11 +1,5 @@
-<div class="page-header">
-    <h1>New link</h1>
-</div>
-
 <% form_for(link, {action: path_to.links, method: 'POST', id: "link_form", class: 'form-horizontal'}, function (form) { %>
     <%- partial('links/form.ejs', {locals: {form: form, link: link}}) %>
-    <div class="form-actions">
-        <%- form.submit('<i class="icon-ok icon-white"></i> Create link', {class: 'btn btn-primary'}) %> or
-        <%- link_to('Cancel', path_to.links, {class: 'btn'}) %>
-    </div>
+    <%- form.submit('<i class="icon-ok icon-white"></i> Create link', {class: 'btn btn-primary'}) %>
+    <%- link_to('Cancel', path_to.links, {class: 'btn'}) %>
 <% });%>
