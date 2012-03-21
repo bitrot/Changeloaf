@@ -8,6 +8,8 @@ var redisOpts = {
 };
 
 app.configure(function(){
+    var cwd = process.cwd();
+
     app.use(express.static(cwd + '/public', {maxAge: 86400000}));
     app.set('views', cwd + '/app/views');
     app.set('view engine', 'ejs');
