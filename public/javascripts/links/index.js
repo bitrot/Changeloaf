@@ -1,1 +1,1 @@
-document.querySelector(".navbar #links").className += ' active';
+document.querySelector("#links").className += ' active';

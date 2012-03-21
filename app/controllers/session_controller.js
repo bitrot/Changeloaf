@@ -1,18 +1,13 @@
 load('application');
 
-before(loadSession, {only: ['show', 'edit', 'update', 'destroy']});
-
-action('new', function () {
-    this.title = 'Login';
-    this.session = new Session;
-    render();
-});
+before(loadSession, {only: ['show', 'edit', 'destroy']});
+// Removed 'update' - ryan
 
 action(function create() {
     Session.create(req.body, function (err, session) {
         if (err) {
             flash('error', 'There was an error.  If this persists, contact support.');
-            render('new');
+            render('login');
         } else {
             flash('info', 'Welcome!');
             redirect(path_to.home);
@@ -37,10 +32,10 @@ action(function destroy() {
     this.session.destroy(function (error) {
         if (error) {
             flash('error', 'There was an error. If this persists, contact support.');
-            render('home');
+            redirect(path_to.home);
         } else {
             flash('info', 'Goodbye!');
-            render('new');
+            render('login');
         }
     });
 });
@@ -48,10 +43,14 @@ action(function destroy() {
 function loadSession() {
     Session.find(params.id, function (err, session) {
         if (err) {
-            redirect(path_to.home);
+            flash('error', 'There was an error. If this persists, contact support.');
+            render('home');
         } else {
             this.session = session;
             next();
+
+            flash('info', 'Session loaded.');
+            render('home');
         }
     }.bind(this));
 }
