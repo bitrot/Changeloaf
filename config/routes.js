@@ -1,3 +1,5 @@
+var passport = require('passport');
+
 exports.routes = function (map) {
     // Resources
     map.resources('session');
@@ -15,8 +17,8 @@ exports.routes = function (map) {
     map.get('/login', 'session#new');
     map.get('/logout', 'session#destroy');
     app.post('/login',
-             passport.authenticate('local', { successRedirect: '/'.
-                                            failureRedirect: '/login',
-                                            failureFlash: true });
+      passport.authenticate('local', { successRedirect: '/',
+        failureRedirect: '/login',
+        failureFlash: true })
     );
 };
