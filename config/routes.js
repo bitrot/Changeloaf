@@ -16,7 +16,7 @@ exports.routes = function (map) {
     map.get('/logout', 'session#destroy');
     app.post('/login',
              passport.authenticate('local', { successRedirect: '/'.
-                                            failureRediret: '/login',
+                                            failureRedirect: '/login',
                                             failureFlash: true });
     );
 };
