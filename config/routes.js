@@ -12,6 +12,6 @@ exports.routes = function (map) {
     map.get('/links', 'links#index');
 
     // Session routes
-    map.get('/login', 'session#create');
+    map.get('/login', 'session#new');
     map.get('/logout', 'session#destroy');
 };
