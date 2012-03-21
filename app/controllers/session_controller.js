@@ -1,13 +1,18 @@
 load('application');
 
-before(loadSession, {only: ['show', 'edit', 'destroy']});
-// Removed 'update' - ryan
+before(loadSession, {only: ['show', 'edit', 'update', 'destroy']});
+
+action('new', function () {
+    this.title = 'Login';
+    this.session = new Session;
+    render();
+});
 
 action(function create() {
     Session.create(req.body, function (err, session) {
         if (err) {
             flash('error', 'There was an error.  If this persists, contact support.');
-            render('login');
+            render('new');
         } else {
             flash('info', 'Welcome!');
             redirect(path_to.home);
@@ -32,10 +37,10 @@ action(function destroy() {
     this.session.destroy(function (error) {
         if (error) {
             flash('error', 'There was an error. If this persists, contact support.');
-            redirect(path_to.home);
+            render('home');
         } else {
             flash('info', 'Goodbye!');
-            render('login');
+            render('new');
         }
     });
 });
@@ -43,14 +48,10 @@ action(function destroy() {
 function loadSession() {
     Session.find(params.id, function (err, session) {
         if (err) {
-            flash('error', 'There was an error. If this persists, contact support.');
-            render('home');
+            redirect(path_to.home);
         } else {
             this.session = session;
             next();
-
-            flash('info', 'Session loaded.');
-            render('home');
         }
     }.bind(this));
 }
