@@ -11,6 +11,7 @@
   , "connect":          ">= 1.4.2"
   , "railway":          ">= 0.1.6"
   , "passport":         ">= 0.0.1"
+  , "passport-local":   ">= 0"
   , "mime":             ">= 1.2.2"
   , "qs":               ">= 0.1.0"
   , "mongoose":         ">= 0"

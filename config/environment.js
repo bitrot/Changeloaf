@@ -1,5 +1,6 @@
 var express = require('express'),
     passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy,
     RedisStore = require('connect-redis')(express);
 
 var redisOpts = {
@@ -24,3 +25,18 @@ app.configure(function(){
     app.use(passport.session());
     app.use(app.router);
 });
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Unkown Users' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Invalid Password' });
+      }
+      return done(null, user);
+    });
+  })
+);
