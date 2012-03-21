@@ -14,4 +14,9 @@ exports.routes = function (map) {
     // Session routes
     map.get('/login', 'session#new');
     map.get('/logout', 'session#destroy');
+    app.post('/login',
+             passport.authenticate('local', { successRedirect: '/'.
+                                            failureRediret: '/login',
+                                            failureFlash: true });
+    );
 };
