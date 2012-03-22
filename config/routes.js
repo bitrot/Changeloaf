@@ -1,3 +1,5 @@
+var passport = require('passport');
+
 exports.routes = function (map) {
     // Resources
     map.resources('session');
